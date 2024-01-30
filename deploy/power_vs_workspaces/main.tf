@@ -160,13 +160,13 @@ provider "ibm" {
 
 resource "ibm_resource_group" "craig_rg" {
   count = var.use_existing_rg ? 0 : 1 
-  name  = "craig-rg"
+  name  = var.resource_group
   tags = []
 }
 
 data "ibm_resource_group" "existing_rg" {
   count = var.use_existing_rg ? 1 : 0
-  name  = var.rg_name
+  name  = var.resource_group
 }
 
 locals {
