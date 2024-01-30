@@ -7,9 +7,26 @@ variable "ibmcloud_api_key" {
   type        = string
   sensitive   = true
 }
+variable "prefix" {
+  description = "The name prefix for the IBM Power Virtual Server Workspaces."
+  type        = string
+  default     = "craig"
+}
+
+variable "resource_group" {
+  description = "The name of the resource group for the IBM Power Virtual Server Workspaces."
+  type        = string
+  default     = "craig-rg"
+}
+
+variable "use_existing_rg" {
+  description = "Determines whether the resource group will be created (value=false) or and existing resource group will be used (value=true)."
+  type        = bool
+  default     = false
+}
 
 variable "region" {
-  description = "IBM Cloud Region where resources will be provisioned"
+  description = "IBM Cloud Region for the IBM Terraform Provider "
   type        = string
   default     = "us-south"
   validation {
